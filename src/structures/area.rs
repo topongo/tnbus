@@ -1,19 +1,17 @@
-use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub enum AreaType {
     E,
     U
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Area {
     #[serde(alias = "areaId")]
-    id: u8,
+    pub id: u16,
     #[serde(alias = "areaDesc")]
-    description: String,
+    pub label: String,
     #[serde(alias = "type")]
-    ty: AreaType
+    pub ty: AreaType
 }
-
